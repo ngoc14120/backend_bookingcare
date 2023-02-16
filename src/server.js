@@ -8,15 +8,8 @@ import cors from "cors";
 require("dotenv").config();
 
 let app = express();
+app.use(cors({ credentials: true, origin: "*" }));
 
-app.use(cors());
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: "100mb" }));
@@ -29,7 +22,6 @@ dentistRouter(app);
 connectDB();
 
 let port = process.env.PORT || 3000;
-
 app.listen(port, () => {
   console.log("server running " + port);
 });
