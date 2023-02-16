@@ -51,6 +51,9 @@ let initWebRouter = (app) => {
     "/api/verify-patient-booking",
     patientControllers.handleVerifyBookingPatient
   );
+  router.get("/", (req, res) => {
+    return res.send("helloosdsdsd");
+  });
   return app.use("/", router);
 };
 

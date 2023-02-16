@@ -23,5 +23,5 @@ connectDB();
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log("server running" + port);
+  console.log("server running " + port);
 });
