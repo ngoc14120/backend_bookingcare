@@ -154,7 +154,7 @@ let CreateScheduleDentist = (data) => {
           });
         }
         let existing = await db.Schedule.findAll({
-          where: { doctorId: data.doctorId, date: data.formateDate },
+          where: { doctorId: data.doctorId, date: "" + data.formateDate },
           attributes: ["timeType", "maxNumber", "date", "doctorId"],
         });
 
